@@ -15,8 +15,8 @@
 
 ## Extra
 
-[] Manejar cuando no hay info de resultados
-[] Arreglar el Search
+[x] Manejar cuando no hay info de resultados
+[x] Arreglar el Search
 [] Añadir Responsive
-[] Intentar añadir un esqueleto
+[x] Intentar añadir un esqueleto
 [] Añadir para que se muestren mas repositorioss

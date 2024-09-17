@@ -11,7 +11,6 @@ export async function searchUser(username: string) {
 
     return user;
   } catch (error) {
-    console.error(error);
-    return null;
+    throw new Error("User not found" + error);
   }
 }

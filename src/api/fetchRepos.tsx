@@ -11,6 +11,6 @@ export async function fetchRepos(username: string) {
     const repos: GitHubRepo[] = data as GitHubRepo[];
     return repos;
   } catch (error) {
-    console.error(error);
+    throw new Error("Repos not found" + error);
   }
 }
