@@ -28,6 +28,7 @@ function App() {
               id="buscador"
               onChange={(e) => setUsername(e.target.value)}
               placeholder="username"
+              autoFocus
               className="bg-transparent w-full text-white focus:outline-none"
             />
           </form>
