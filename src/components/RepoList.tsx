@@ -31,12 +31,27 @@ export function RepoList({ repos }: RepoListProps) {
             {repo.description ? repo.description : "No description provided"}
           </h1>
           <div className="flex mt-4 gap-5">
+            {repo.license && (
+              <span className="flex gap-1">
+                <img
+                  src="/Chield_alt.svg"
+                  alt="Icono de un circulo con 3 puntos que indica la licencia del repositorio"
+                />
+                {repo.license.spdx_id}
+              </span>
+            )}
             <span className="flex gap-1">
-              <img src="/Nesting.svg" alt="" />
+              <img
+                src="/Nesting.svg"
+                alt="Icono que hace referencia a cuantos fork tiene el repositorio"
+              />
               {repo.forks_count}
             </span>
             <span className="flex gap-1">
-              <img src="/Star.svg" alt="" />
+              <img
+                src="/Star.svg"
+                alt="Icono que indica la cantidad de estrellas que tiene el repositorio"
+              />
               {repo.stargazers_count}
             </span>
 
