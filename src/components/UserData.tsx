@@ -21,7 +21,7 @@ export function UserData({
           <section className="flex justify-start items-end gap-12">
             <div className="bg-[#20293a] w-fit p-2 rounded-2xl">
               <img
-                src={userProfile?.avatar_url}
+                src={userProfile?.avatar_url || "/vite.svg"}
                 alt={`${userProfile?.name} avatar`}
                 className="w-32 h-auto rounded-2xl"
               />
@@ -46,9 +46,7 @@ export function UserData({
               <h2 className="text-xl text-[#98A3B7]">{userProfile?.bio}</h2>
               <span className="mt-5 text-2xl text-zinc-400 mb-10">
                 Repositories:{" "}
-                <span className="text-[#CDD5E0]">
-                  {userProfile?.public_repos}
-                </span>
+                {userProfile?.public_repos ? userProfile?.public_repos : 0}
               </span>
             </div>
 
