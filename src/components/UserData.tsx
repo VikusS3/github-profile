@@ -7,10 +7,14 @@ export function UserData({
   userProfile,
   repos,
   error,
+  showAllRepos,
+  toogleShowAllRepos,
 }: {
   userProfile: GitHubUserProfile | null;
   repos: GitHubRepo[] | null;
   error: string | null;
+  showAllRepos: boolean;
+  toogleShowAllRepos: () => void;
 }) {
   return (
     <main className="mx-auto max-w-[1280px] mt-32 ">
@@ -52,7 +56,17 @@ export function UserData({
               </span>
             </div>
 
-            {repos && <RepoList repos={repos} />}
+            {repos && repos.length > 0 && (
+              <div>
+                <RepoList repos={repos} />
+                <button
+                  onClick={toogleShowAllRepos}
+                  className="mt-4 p-2 bg-blue-500 text-white rounded-md"
+                >
+                  {showAllRepos ? "Hide Repos" : "Show Repos"}
+                </button>
+              </div>
+            )}
           </section>
         </>
       )}

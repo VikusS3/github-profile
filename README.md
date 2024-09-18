@@ -17,7 +17,7 @@
 
 [x] Manejar cuando no hay info de resultados
 [x] Arreglar el Search
-[] Añadir Responsive
+[x] Añadir Responsive
 [] Añadir mejores formas de manejar los error
 [x] Intentar añadir un esqueleto
 [] Añadir para que se muestren mas repositorioss

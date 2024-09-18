@@ -11,6 +11,7 @@ export function useUser() {
     null
   );
   const [repos, setRepos] = useState<GitHubRepo[] | null>(null);
+  const [showAllRepos, setShowAllRepos] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ export function useUser() {
       if (user) {
         setUserProfile(user);
         const repos = await fetchRepos(username);
-        setRepos(repos?.slice(0, 4) ?? []);
+        setRepos(showAllRepos ? repos : repos?.slice(0, 4) ?? []);
       } else {
         setError("User not found");
       }
@@ -39,6 +40,18 @@ export function useUser() {
     }
   };
 
+  const toggleShowAllRepos = () => {
+    setShowAllRepos((prev) => {
+      const newShowAllRepos = !prev;
+
+      if (repos) {
+        setRepos(newShowAllRepos ? repos : repos.slice(0, 4));
+      }
+      console.log(newShowAllRepos);
+      return newShowAllRepos;
+    });
+  };
+
   return {
     username,
     setUsername,
@@ -47,5 +60,7 @@ export function useUser() {
     userProfile,
     handleSubmit,
     repos,
+    showAllRepos,
+    toggleShowAllRepos,
   };
 }

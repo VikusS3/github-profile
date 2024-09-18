@@ -3,16 +3,20 @@ import { UserData } from "./components/UserData";
 import { useUser } from "./hooks/userUser";
 
 function App() {
-  const { error, handleSubmit, setUsername, loading, userProfile, repos } =
-    useUser();
+  const {
+    error,
+    handleSubmit,
+    setUsername,
+    loading,
+    userProfile,
+    repos,
+    showAllRepos,
+    toggleShowAllRepos,
+  } = useUser();
 
   return (
     <div className="flex flex-col w-full justify-items-center justify-center items-center ">
-      <img
-        src="/hero.png"
-        alt=""
-        className="absolute -z-10 object-cover inset-0 w-full"
-      />
+      <img src="/hero.png" alt="" className="absolute -z-10  inset-0 w-full" />
       <header className="relative w-full">
         <div className="flex bg-[#20293A] md:w-96 w-full items-center gap-3 mx-auto mt-8 px-5 py-3 rounded-lg text-[#364153]">
           <button
@@ -38,7 +42,13 @@ function App() {
       {loading ? (
         <Skeleton error={error} />
       ) : (
-        <UserData userProfile={userProfile} repos={repos} error={error} />
+        <UserData
+          userProfile={userProfile}
+          repos={repos}
+          error={error}
+          showAllRepos={showAllRepos}
+          toogleShowAllRepos={toggleShowAllRepos}
+        />
       )}
     </div>
   );
