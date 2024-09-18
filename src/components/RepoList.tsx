@@ -18,11 +18,11 @@ export function RepoList({ repos }: RepoListProps) {
     return rtf.format(-diffInDays, "day");
   }
   return (
-    <ul className="grid grid-cols-2 justify-center items-center gap-5 mb-10">
+    <ul className="grid md:grid-cols-2  justify-center items-center gap-5 mb-10">
       {repos?.map((repo: GitHubRepo) => (
         <li
           key={repo.id}
-          className="bg-gradient-to-r from-[#111729] to-[#1D1B48] rounded-2xl text-[#CDD5E0] p-5"
+          className="w-full bg-gradient-to-r from-[#111729] to-[#1D1B48] rounded-2xl text-[#CDD5E0] p-5 max-w-xl"
         >
           <a href={repo.html_url} target="_blank" rel="noreferrer">
             {repo.name}
@@ -30,7 +30,7 @@ export function RepoList({ repos }: RepoListProps) {
           <h1 className="opacity-85">
             {repo.description ? repo.description : "No description provided"}
           </h1>
-          <div className="flex mt-4 gap-5">
+          <div className="flex mt-4 gap-5 flex-wrap">
             {repo.license && (
               <span className="flex gap-1">
                 <img
